@@ -7,7 +7,11 @@ const app = express();
 
 
 app.use(bodyParser.json({ limit: "50mb" }));
-app.use(cors());
+app.use(cors({
+  origin: "*", // Allow requests from Angular frontend
+  methods: ['GET', 'POST','PUT','PATCH','DELETE'],
+  credentials: true // Allow credentials (cookies, HTTP authentication)
+}));
 
 const port = 3000;
 
